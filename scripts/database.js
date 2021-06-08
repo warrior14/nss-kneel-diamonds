@@ -33,7 +33,12 @@ const database = {
             styleId: 3,
             timestamp: 1614659931693
         }
-    ]
+    ],
+    orderBuilder: {
+        sizeId: "",
+        metalId: "",
+        styleId: ""
+    }
 }
 
 export const getMetals = () => {
@@ -52,3 +57,17 @@ export const getOrders = () => {
     return database.customOrders.map(order => ({...order}))
 }
 
+// Below is the setting of the state from orderBuilder object
+// the id parameter below which the primary key of each metal object from the metals array, will be equal to the foreign key(metalId) 
+// and setting that state in the orderBuilder object
+export const setMetal = (id) => {
+    database.orderBuilder.metalId = id
+}
+
+export const setSize = (id) => {
+    database.orderBuilder.sizeId = id
+}
+
+export const setStyle = (id) => {
+    database.orderBuilder.styleId = id
+}
