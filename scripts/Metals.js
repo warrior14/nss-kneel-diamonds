@@ -1,4 +1,4 @@
-import { getMetals, setMetal } from "./database.js"
+import { getMetals, setMetal } from "./database.js";
 
 
 const metals = getMetals()
@@ -8,13 +8,10 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.name === "metal") {
-            setMetal(parseInt(event.target.value))
-        }
+            setMetal(parseInt(event.target.value));
+        };
     }
-)
-
-
-
+);
 
 export const Metals = () => {
     let html = "<ul>"
@@ -24,8 +21,8 @@ export const Metals = () => {
         html += `<li>
             <input type="radio" name="metal" value="${metal.id}" /> ${metal.metal}
         </li>`
-    }
+    };
 
-    html += "</ul>"
-    return html
-}
+    html += "</ul>";
+    return html;
+};

@@ -1,4 +1,4 @@
-import { getSizes } from "./database.js"
+import { getSizes, setSize } from "./database.js";
 
 const sizes = getSizes()
 
@@ -6,10 +6,10 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.name === "size") {
-            window.alert(`Customer has chosen size ${event.target.value}`)
-        }
+            setSize(parseInt(event.target.value));
+        };
     }
-)
+);
 
 export const DiamondSizes = () => {
     let html = "<ul>"
@@ -17,12 +17,12 @@ export const DiamondSizes = () => {
     // Use .map() for converting objects to <li> elements
     const listItems = sizes.map(size => {
         return `<li>
-            <input type="radio" name="size" value="${size.id}" /> ${size.carets}
-        </li>`
-    })
+                    <input type="radio" name="size" value="${size.id}" /> ${size.carets}
+                </li>`
+    });
 
-    html += listItems.join("")
-    html += "</ul>"
+    html += listItems.join("");
+    html += "</ul>";
 
-    return html
-}
+    return html;
+};
